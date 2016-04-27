@@ -87,6 +87,8 @@ public class LeihoaJPasswordField extends JFrame {
 				String userString = textField.getText();
 				if (passString.equals("1dw3") && userString.equals(userString)){
 					lblStatus.setText("oi! :)");
+					LeihoaKaixo LK=new LeihoaKaixo();
+					LK.setVisible(true);
 				}else{
 					lblStatus.setText("boo! >:(");
 				}
