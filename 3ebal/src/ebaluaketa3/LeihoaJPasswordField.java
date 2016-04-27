@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -46,8 +47,9 @@ public class LeihoaJPasswordField extends JFrame {
 	 * Create the frame. Test2
 	 */
 	public LeihoaJPasswordField() {
+		int aukera = JOptionPane.showConfirmDialog(null, (String)"Elkarrizketa proba","baieztattze koadroa", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 150, 225);
+		setBounds(800, 300, 150, 225);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -85,10 +87,17 @@ public class LeihoaJPasswordField extends JFrame {
 				String passString = String.valueOf(pass);
 				
 				String userString = textField.getText();
-				if (passString.equals("1dw3") && userString.equals(userString)){
+				if (passString.equals("1dw3") && userString.equals("jokin")){
 					lblStatus.setText("oi! :)");
 					LeihoaKaixo LK=new LeihoaKaixo();
-					LK.setVisible(true);
+					LeihoaEditorPaint LEP=new LeihoaEditorPaint();
+					LK.setVisible(false);
+					LEP.setVisible(true);
+					
+					//super.frame.setVisible(false);
+					JOptionPane.showMessageDialog(null, "Kaixo, " + userString.toUpperCase() +".");
+					
+					
 				}else{
 					lblStatus.setText("boo! >:(");
 				}
