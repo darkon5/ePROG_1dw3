@@ -43,7 +43,7 @@ public class LeihoaJPasswordField extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame. Test2
 	 */
 	public LeihoaJPasswordField() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
