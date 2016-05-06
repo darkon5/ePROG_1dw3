@@ -264,8 +264,7 @@ public class LeihoaJEditorPane extends JFrame implements ChangeListener, ActionL
 			DokumentuaGorde();
 			//gorde eta salto egin 1-era
 		case 1:
-			String edukia="";
-			Testua.setText("");
+			System.exit(0); 
 			break;
 		case 2:
 			break;

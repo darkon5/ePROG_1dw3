@@ -193,7 +193,7 @@ public class LeihoaJEditorPane extends JFrame implements ChangeListener, ActionL
 			JFileChooser fileChooser = new JFileChooser(); 
 		int aukera = fileChooser.showOpenDialog(rootPane);
 		
-		String edukia="";
+		
 		if (aukera == JFileChooser.APPROVE_OPTION){ 
 			Testua.setText("");
 			try (BufferedReader reader = new BufferedReader(new FileReader(fileChooser.getSelectedFile()))) {
@@ -202,9 +202,8 @@ public class LeihoaJEditorPane extends JFrame implements ChangeListener, ActionL
 
 				setTitle(appname + " - " + path);
 			    while ((line = reader.readLine()) != null) {
-				   edukia +=line + "\n";
+				    Testua.setText(Testua.getText() + line + "\n");
 			    }
-			    Testua.setText(edukia);
 			} catch (IOException x) {
 			    System.err.format("IOException: %s%n", x);
 			}
@@ -264,8 +263,7 @@ public class LeihoaJEditorPane extends JFrame implements ChangeListener, ActionL
 			DokumentuaGorde();
 			//gorde eta salto egin 1-era
 		case 1:
-			String edukia="";
-			Testua.setText("");
+			System.exit(0); 
 			break;
 		case 2:
 			break;
