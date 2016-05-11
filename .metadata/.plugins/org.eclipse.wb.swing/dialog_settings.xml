@@ -6,4 +6,10 @@
 		<item value="287" key="y"/>
 		<item value="505" key="height"/>
 	</section>
+	<section name="org.eclipse.wb.internal.core.utils.ui.dialogs.StringsDialog">
+		<item value="780" key="x"/>
+		<item value="359" key="width"/>
+		<item value="384" key="y"/>
+		<item value="312" key="height"/>
+	</section>
 </section>

@@ -1,0 +1,68 @@
+package ebaluaketa3;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+
+public class LeihoaJListAukeraketaAnitza extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LeihoaJListAukeraketaAnitza frame = new LeihoaJListAukeraketaAnitza();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public LeihoaJListAukeraketaAnitza() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JList list = new JList();
+		list.setModel(new AbstractListModel() {
+			String[] values = new String[] {"Aaa", "Bbb"};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		contentPane.add(list, BorderLayout.CENTER);
+		
+		JButton btnIrten = new JButton("Irten");
+		contentPane.add(btnIrten, BorderLayout.SOUTH);
+		
+		JLabel lbldw = new JLabel("1DW3");
+		lbldw.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbldw.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lbldw, BorderLayout.NORTH);
+	}
+
+}
