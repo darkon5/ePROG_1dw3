@@ -54,7 +54,7 @@ public class LeihoaJListAukeraketaAnitza extends JFrame implements ListSelection
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		DefaultListModel<String> dlm = new DefaultListModel<String>();
+		DefaultListModel<String> dlm = new DefaultListModel<String>(); 
 		dlm.addElement("1AS3"); 
 		dlm.addElement("2AS3"); 
 		dlm.addElement("1DW3");

@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 
@@ -25,7 +24,6 @@ public class LehioaJComboboxJList extends JFrame implements ActionListener {
 	private JLabel lblAukera;
 	private JButton btnPasatu;
 	private JList zerrenda;
-	private DefaultListModel<String> dlm = new DefaultListModel<String>(); 
 	
 
 	/**
@@ -78,7 +76,7 @@ public class LehioaJComboboxJList extends JFrame implements ActionListener {
 		btnPasatu.addActionListener(this);
 		contentPane.add(btnPasatu);
 		
-		zerrenda = new JList<String>();
+		zerrenda = new JList();
 		zerrenda.setBounds(148, 38, 235, 333);
 		contentPane.add(zerrenda);
 	}
@@ -91,11 +89,9 @@ public class LehioaJComboboxJList extends JFrame implements ActionListener {
 			String aukeraketa = (String) this.cmbTaldeak.getSelectedItem(); 
 			this.lblAukera.setText(aukeraketa); 
 		}
-		if(e.getSource() == btnPasatu){
+		if(e.getSource() == cmbTaldeak){
 			//egin gauzak
 			String aukeraketa = (String) this.cmbTaldeak.getSelectedItem(); 
-			this.dlm.addElement(aukeraketa);
-			this.zerrenda.setModel(dlm);
 			this.lblAukera.setText(aukeraketa); 
 		}
 	}

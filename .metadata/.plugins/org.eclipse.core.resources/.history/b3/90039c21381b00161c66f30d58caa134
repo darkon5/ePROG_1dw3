@@ -6,15 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.*;
-import javax.swing.event.*;
-import java.io.*;
-import java.awt.Component;
 
-public class LeihoaJEditorPaneUrl extends JFrame {
+public class VentanaJListNumeros extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtHttpddggg;
 
 	/**
 	 * Launch the application.
@@ -23,7 +18,7 @@ public class LeihoaJEditorPaneUrl extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LeihoaJEditorPaneUrl frame = new LeihoaJEditorPaneUrl();
+					VentanaJListNumeros frame = new VentanaJListNumeros();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,27 +30,13 @@ public class LeihoaJEditorPaneUrl extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LeihoaJEditorPaneUrl() {
+	public VentanaJListNumeros() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 679, 505);
+		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
-		JEditorPane editorPane = new JEditorPane();
-		contentPane.add(editorPane, BorderLayout.CENTER);
-		
-		JToolBar toolBar = new JToolBar();
-		contentPane.add(toolBar, BorderLayout.NORTH);
-		
-		JLabel lblUrl = new JLabel("URL:");
-		toolBar.add(lblUrl);
-		
-		txtHttpddggg = new JTextField();
-		txtHttpddggg.setText("http://ddg.gg");
-		toolBar.add(txtHttpddggg);
-		txtHttpddggg.setColumns(10);
 	}
 
 }
