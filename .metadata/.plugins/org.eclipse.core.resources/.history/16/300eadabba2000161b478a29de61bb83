@@ -61,21 +61,11 @@ public class SQLtestFrame extends JFrame {
 			lblStatus.setText("Konexio egokia."); 
 			Statement st = konexioa.createStatement();
 			ResultSet rs = st.executeQuery("SELECT * FROM ikasleak"); 
+			
 			while (rs.next()){
 				System.out.println("NAN: " + rs.getObject("nan") + ", Izena: " + 	rs.getObject("izena") + ", Abizenak: " + rs.getObject("abizenak") + ", Taldea: " + rs.getObject("taldea"));	} 
 			
-			st.executeUpdate("insert into ikasleak values ('xxxxxxx1A','W1','A1','9XZ1');"); 
-			System.out.println();
-			System.out.println();
-			rs = st.executeQuery("SELECT * FROM ikasleak"); 
-			while (rs.next()){
-				System.out.println("NAN: " + rs.getObject("nan") + ", Izena: " + 	rs.getObject("izena") + ", Abizenak: " + rs.getObject("abizenak") + ", Taldea: " + rs.getObject("taldea"));	} 
-
-			st.executeUpdate("DELETE FROM `ikasleak` WHERE `ikasleak`.`nan` = \'xxxxxxx1A\'"); 
-
-			System.out.println();
-			System.out.println("Azken sarrera ezabatuta dago.");
-			
+			//st.executeQuery("insert into ikasleak values ('xxxxxxx1A','W1','A1','9XZ1');"); 
 			rs.close(); 
 			st.close();
 			konexioa.close(); 
