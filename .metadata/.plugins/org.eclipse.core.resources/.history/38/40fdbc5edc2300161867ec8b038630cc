@@ -1,0 +1,186 @@
+package ebaluaketa3;
+
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.text.JTextComponent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+//import azt_3_3b.Racional;
+import ebaluaketa3.Racional;
+import javax.swing.JScrollPane;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+public class Azt3JListErrazionalaFitxategiak extends JFrame implements ActionListener {
+
+
+	private static final long serialVersionUID = -7738502548771528496L;
+
+	private JPanel edukiontzia;
+	
+	private JLabel lblZenbakitzaile;
+	private JPanel Datuakpanela;
+	private JButton btnSartu;
+	private JButton btnEzabatu;
+	private JButton btnGarbitu;
+	
+	//Taldeen zerrrenda
+	private JList<Racional> lstErrazionalak;
+	//zerrendaren datu modeloa
+	private DefaultListModel<Racional> dlmErrazionalak;
+	
+	//private boolean aldatua = false;
+	private JTextField txtZenbakitzaile;
+	private JLabel lblNewLabel;
+	private JTextField txtIzendatzaile;
+	private JScrollPane scrollPane;
+	private JPanel egoeraPanela;
+	private JLabel lblEstado;
+	private JLabel lblOraingoegoera ;
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Azt3JListErrazionalaFitxategiak frame = new Azt3JListErrazionalaFitxategiak();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Azt3JListErrazionalaFitxategiak() {
+		setTitle("Azt3JListErrazionalaFitxategiak");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 822, 336);
+		edukiontzia = new JPanel();
+		edukiontzia.setBorder(new EmptyBorder(5, 5, 5, 5));
+		edukiontzia.setLayout(new BorderLayout(0, 0));
+		setContentPane(edukiontzia);
+		
+		
+		Datuakpanela = new JPanel();
+		edukiontzia.add(Datuakpanela, BorderLayout.NORTH);
+		
+		lblZenbakitzaile = new JLabel("Zenbakitzailea");
+		Datuakpanela.add(lblZenbakitzaile);
+		lblZenbakitzaile.setHorizontalAlignment(SwingConstants.CENTER);
+	  
+	  txtZenbakitzaile = new JTextField();
+	  txtZenbakitzaile.setHorizontalAlignment(SwingConstants.RIGHT);
+	  txtZenbakitzaile.setText("0");
+	  
+	  Datuakpanela.add(txtZenbakitzaile);
+	  txtZenbakitzaile.setColumns(10);
+	  
+	  lblNewLabel = new JLabel("Izendatzailea");
+	  Datuakpanela.add(lblNewLabel);
+	  
+	  txtIzendatzaile = new JTextField();
+	  txtIzendatzaile.setHorizontalAlignment(SwingConstants.RIGHT);
+	  txtIzendatzaile.setText("1");
+	
+	  Datuakpanela.add(txtIzendatzaile);
+	  txtIzendatzaile.setColumns(10);
+	  
+	  btnSartu = new JButton("Sartu");
+	 
+	  Datuakpanela.add(btnSartu);
+	  
+	  btnEzabatu = new JButton("Ezabatu");
+	 
+	  Datuakpanela.add(btnEzabatu);
+	  
+	  btnGarbitu = new JButton("Garbitu");
+	
+	  Datuakpanela.add(btnGarbitu);
+		
+		// zerrendaren datamodela
+	    dlmErrazionalak = new DefaultListModel<Racional>();
+		// lstErrazionalak
+		lstErrazionalak = new JList<Racional>();
+		lstErrazionalak.setModel(dlmErrazionalak);
+		scrollPane = new JScrollPane(lstErrazionalak);
+		edukiontzia.add(scrollPane, BorderLayout.CENTER);
+		
+		egoeraPanela = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) egoeraPanela.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		edukiontzia.add(egoeraPanela, BorderLayout.SOUTH);
+		
+		lblEstado = new JLabel("Egoera: ");
+		egoeraPanela.add(lblEstado);
+		
+		lblOraingoegoera  = new JLabel("Aldaketa barik");
+		lblOraingoegoera .setFont(new Font("Tahoma", Font.BOLD, 16));
+		egoeraPanela.add(lblOraingoegoera );
+		
+	 
+	
+	  
+		
+	}
+	
+	@Override 
+	public void actionPerformed(ActionEvent e) {
+
+		if(e.getSource() == btnSartu || e.getSource() == txtZenbakitzaile || e.getSource() == txtIzendatzaile){
+			//egin gauzak
+
+			int intZenbakitzaile = Integer.parseInt(this.txtZenbakitzaile.getText());
+			int intIzendatzaile = Integer.parseInt(this.txtIzendatzaile.getText());
+			JOptionPane.showMessageDialog(null, "berria" + intZenbakitzaile + intIzendatzaile);
+			Racional aukeraketa =new Racional(intZenbakitzaile,intIzendatzaile);
+			this.dlmErrazionalak.addElement(aukeraketa);
+			this.lstErrazionalak.setModel(dlmErrazionalak);
+			//txtNumero.selectAll();
+		}
+		if(e.getSource() == btnEzabatu){
+			//egin gauzak
+			/*String aukeraketa = (String) this.txtNumero.getText();
+			while (this.dlm.contains(aukeraketa)==true){
+				this.dlm.removeElement(aukeraketa);
+			}*/
+			Racional sele = this.lstErrazionalak.getSelectedValue();
+			this.dlmErrazionalak.removeElement(sele);
+
+			
+			this.lstErrazionalak.setModel(dlmErrazionalak);
+		}
+		if(e.getSource() == btnGarbitu){
+			//egin gauzak
+			this.dlmErrazionalak.clear();
+		}
+	}
+
+	
+}
+
